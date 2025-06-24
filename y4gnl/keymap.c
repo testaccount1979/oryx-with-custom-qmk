@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, 
     CW_TOGG,        KC_W,           MT(MOD_LCTL, KC_C),MT(MOD_LALT, KC_M),KC_P,           KC_K,                                           KC_X,           MT(MOD_RGUI, KC_L),MT(MOD_RALT, KC_O),MT(MOD_RCTL, KC_U),KC_J,           TG(4),          
     KC_TAB,         KC_R,           LT(3, KC_S),    LT(2, KC_T),    LT(1, KC_H),    KC_B,                                           KC_Y,           LT(1, KC_N),    LT(2, KC_A),    LT(3, KC_E),    KC_I,           KC_COMMA,       
-    KC_LEFT_CTRL,   KC_Q,           KC_G,           KC_D,           MT(MOD_LSFT, KC_F),KC_V,                                           KC_Z,           KC_SLASH,       KC_QUOTE,       KC_SCLN,        KC_DOT,         KC_QUES,        
+    KC_LEFT_CTRL,   KC_Q,           KC_G,           KC_D,           MT(MOD_LSFT, KC_F),KC_V,                                           KC_Z,           QK_AREP,       KC_QUOTE,       KC_SCLN,        KC_DOT,         KC_QUES,        
                                                     KC_BSPC,        KC_SPACE,                                       KC_LEFT_GUI,    KC_RIGHT_SHIFT
   ),
   [1] = LAYOUT_voyager(
@@ -161,6 +161,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
   return true;
+}
+// Custom QMK
+uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
+    switch (keycode) {
+        case KC_QUOTE: return KC_L;
+      
+        case KC_G: return KC_H;
+      
+        case KC_P: return KC_T;
+        case KC_W: return KC_R;
+        case KC_S: return KC_C;
+      
+        case KC_M: return KC_B;
+      
+        case KC_R: return KC_K;
+        case KC_E: return KC_L;
+        case KC_I: return KC_L;
+    }
+    return KC_SLASH;
 }
 
 
