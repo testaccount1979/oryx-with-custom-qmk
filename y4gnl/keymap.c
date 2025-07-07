@@ -188,22 +188,22 @@ uint16_t get_alt_repeat_key_keycode_user(uint16_t keycode, uint8_t mods) {
     switch (keycode) {
         case KC_QUOTE: return KC_L;
 
-        case KC_W: return KC_R;
-        case KC_S: return KC_C;
+        case KC_G: return KC_H;
+        case LT(3, KC_S): return KC_C;
   
-        case KC_F: return KC_T;
-        case KC_P: return KC_T;
+        case MT(MOD_LGUI, KC_P): return KC_T;
+        case KC_W: return KC_R;
 
         case KC_B: return KC_T;
       
         case KC_G: return KC_H;
-        case KC_M: return KC_B;
+        case MT(MOD_LALT, KC_M): return KC_B;
 
-        case KC_C: return KC_K;
+        case MT(MOD_LCTL, KC_C): return KC_K;
         case KC_R: return KC_K;
-        case KC_A: return KC_Y;
-        case KC_E: return KC_X;
-        case KC_I: return KC_X;
+        case LT(2, KC_A): return KC_Y;
+        case LT(3, KC_E): return KC_Y;
+        case KC_I: return KC_L;
     }
     return KC_SLASH;
 }
